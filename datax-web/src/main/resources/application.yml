@@ -4,9 +4,16 @@ spring:
   #数据源
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/datax_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    password: ahhx965432
+    url: jdbc:mysql://192.168.210.11:8001/datax_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
+    minEvictableIdleTimeMillis: 1800000
+    numTestsPerEvictionRun: 3
+    testOnBorrow: true
+    testWhileIdle: true
+    testOnReturn: true
+    validationQuery:  SELECT 1
 
 
 mybatis-plus:
@@ -38,4 +45,7 @@ mybatis-plus:
 
 app:
   #  数据抽取日志文件保存路径
-  etlLogDir: D:\temp\logs\datax-web\
+  # 本地
+#  etlLogDir: /Users/zhc/Documents/dataX/logs/
+  #服务器
+  etlLogDir: /opt/sprinboot_datax/logs/
